@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = express();
 
-AWS.config.update({region: 'us-west-1'});
+AWS.config.update({region: process.env.AWS_REGION});
 
 const ddb = new AWS.DynamoDB();
 
