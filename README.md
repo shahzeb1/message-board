@@ -34,10 +34,11 @@ then skip to the next section.
 2. Install NPM dependencies:
 
         $ npm install
+
 3. Rename the `example.env` file to `.env` and place your `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY`,`AWS_REGION`, 
 and `REDIS_HOST` right after the respective `=` signs.
 
-4. Make sure you have [redis installed](https://redis.io/topics/quickstart) locally. Use the `redis-server`
+4. Make sure you have [redis installed](https://redis.io/topics/quickstart) locally. Use the `$ redis-server`
 command to run a redis server on your localhost.
 
 5. Create a DynamoDB table called `messages`.

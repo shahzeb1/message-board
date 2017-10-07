@@ -158,5 +158,5 @@ app.get('/api/search', function(req, res) {
 });
 
 app.listen(port, function() {
-  console.log('Message board app listening on port ' + port);
+  console.log(`Message board app listening on port ${port}`);
 });
