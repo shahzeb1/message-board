@@ -1,0 +1,82 @@
+body{
+  background: #F9F9F9;
+}
+header{
+  margin-top: 20px;
+}
+.topbar{
+  margin-bottom: 30px;
+  text-align: right;
+}
+.topbar a{
+  font-size: 16pt;
+  text-decoration: none;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.topbar a:hover{
+  text-decoration: underline;
+}
+.message{
+   font-size: 18px;
+}
+
+.item{
+  background: white;
+  padding: 10px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+.item img{
+  width: 200px;
+  cursor: pointer;
+}
+.item .itemContent{
+  font-size: 18pt;
+}
+.alert{
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.alert a{
+  text-decoration: none;
+  color: white;
+}
+.success{
+  background: #27A704;
+  color: white;
+}
+.error{
+  background: #DF0000;
+  color: white;
+}
+
+.noposts{
+  text-align: center;
+  font-size: 16pt;
+  color: grey;
+  margin-top: 90pt;
+}
+
+.chartContainer{
+  width: 400px !important;
+  height: 400px !important;
+  display: block;
+  margin: 0 auto;
+}
+
+canvas{
+  cursor: pointer;
+}
+
+
+/* Search results table */
+.searchResults{
+  text-transform: capitalize;
+}
+.searchResults a{
+  text-decoration: none;
+}
+.searchResults a:hover{
+  text-decoration: underline;
+}

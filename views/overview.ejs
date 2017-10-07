@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Message Board | Overview</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" integrity="sha256-SiHXR50l06UwJvHhFY4e5vzwq75vEHH+8fFNpkXePr0=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <meta name="description" content="A basic message board, overview" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+    <% include topbar %>
+    <div class="row">
+      <div class="eight columns">
+        <input class="u-full-width" type="text" placeholder="Search" id="searchInput">
+      </div>
+      <div class="four columns">
+        <input class="u-full-width" type="submit" value="Random Community" id="random">
+      </div>
+    </div>
+    <table class="u-full-width">
+        <tbody class="searchResults">
+        </tbody>
+      </table>
+    </div>
+  </header>
+  <hr/>
+
+  <div class="container">
+    <div class="chartContainer">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <script src="../js/overview.js"></script>
+  </div>
+</body>
+
+</html>

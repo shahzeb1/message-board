@@ -1,0 +1,16 @@
+<% posts.forEach(function(post) { %>
+<div class="item" id="item">
+  <div class="itemContent">
+    <%- marked(post.message) %>
+  </div>
+  <div class="u-pull-right"><pre>posted <%= timeAgo(post.time) %></pre></div>
+</div>
+<div class="u-cf"></div>
+<% }); %>
+
+<% if (posts == ""){ %>
+<div class="noposts">
+  There are no posts in "<%= c %>" yet.<br>
+  Be the first to post something here!
+</div>
+<% } %>

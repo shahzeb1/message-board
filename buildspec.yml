@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - npm install
+  post_build:
+    commands:
+      - echo Entering post_build test mode...
+      - npm test
+artifacts:
+  files:
+    - '**/*'

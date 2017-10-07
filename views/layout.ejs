@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Message Board | <%= c %></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" integrity="sha256-iU/Wh1HMAs/NgpurDAu14e7S3FkllcJ5aPnpPDdnO6c=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox.min.js" integrity="sha256-9r7DHolfe5aoH+bUj4FEqRBq2tmaIXBxOYUZFalCjSE=" crossorigin="anonymous"></script>
+  <script src="../js/layout.js"></script>
+  <meta name="description" content="A basic message board" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+    <% include topbar %>
+    <form method="post" action="/message">
+      <textarea class="u-full-width message" placeholder="Markdown message here …" name="message"></textarea>
+      <div class="row">
+        <div class="nine columns">
+          <pre> posting to <b>/c/<%= c %></b></pre></div>
+        <div class="three columns">
+          <input type="hidden" name="channel" value="<%= c %>">
+          <input class="button-primary u-full-width" type="submit" value="Submit">
+        </div>
+      </div>
+    </form>
+    </div>
+  </header>
+  <hr/>
+
+  <div class="container">
+    <%if (success == true){ %>
+      <div class="alert success" id="alerts">
+        <div class="row">
+          <div class="eleven columns">Successfully posted to the <b>/c/<%= c %></b> channel.</div>
+          <div class="one columns u-pull-right"><a href="#" onClick="clearAlerts();">&#10006;</a></div>
+        </div>
+      </div>
+    <% } %>
+    <%if (error == true){ %>
+      <div class="alert error" id="alerts">
+        <div class="row">
+          <div class="eleven columns">Unfortunately something went wrong while posting that. :(</div>
+          <div class="one columns u-pull-right"><a href="#" onClick="clearAlerts();">&#10006;</a></div>
+        </div>
+      </div>
+    <% } %>
+    <% include posts %>
+  </div>
+</body>
+
+</html>
