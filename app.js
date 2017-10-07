@@ -11,7 +11,7 @@ const express = require('express'),
 
 const app = express();
 
-AWS.config.loadFromPath('./aws.json');
+// AWS.config.loadFromPath('./aws.json');
 const ddb = new AWS.DynamoDB();
 
 const redisHost = process.env.REDIS_HOST;
