@@ -9,6 +9,10 @@ const express = require('express'),
       NodeRSA = require('node-rsa'),
       Redis = require('ioredis');
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load();
+}
+
 const app = express();
 
 AWS.config.update({region: 'us-west-1'});
