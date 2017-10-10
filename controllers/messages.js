@@ -1,5 +1,7 @@
 const AWS = require('aws-sdk');
 const Redis = require('ioredis');
+const marked = require('marked');
+const timeAgo = require('node-time-ago');
 
 const ddbTable = 'messages';
 const redisHost = process.env.REDIS_HOST;
@@ -14,7 +16,7 @@ module.exports.getMessages = (req, res) => {
   } else {
     succ = false;
   }
-  if (parseInt(error, 10) == 1) {
+  if (parseInt(error, 10) === 1) {
     error = true;
   } else {
     error = false;
@@ -44,6 +46,8 @@ module.exports.getMessages = (req, res) => {
         posts: data.Items,
         success: succ,
         error,
+        marked,
+        timeAgo,
       });
     }
   });
@@ -57,7 +61,9 @@ function generateRowId(subid) {
   const randid = Math.floor(Math.random() * 512);
   ts *= 64; // bit-shift << 6
   ts += subid;
-  return ts * 512 + randid % 512;
+  ts *= 512;
+  ts += randid % 512;
+  return ts;
 }
 
 // When a new message for a community is POSTED:
