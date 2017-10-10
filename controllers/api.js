@@ -1,22 +1,23 @@
-const Redis = require("ioredis");
+const Redis = require('ioredis');
+
 const redisHost = process.env.REDIS_HOST;
 const redis = new Redis(redisHost);
 
 // Return some of the most active channels for the graph:
-module.exports.overview = function(req, res) {
-  redis.zrevrange("channels", 0, 12, "withscores").then(function(results) {
-    const resToJSON = new Promise((resolve, reject) => {
-      let g = {};
+module.exports.overview = (req, res) => {
+  redis.zrevrange('channels', 0, 12, 'withscores').then((results) => {
+    const resToJSON = new Promise((resolve) => {
+      const g = {};
       for (let i = 0; i < results.length; i += 2) {
-        g[results[i]] = parseInt(results[i + 1]);
+        g[results[i]] = parseInt(results[i + 1], 10);
       }
       resolve(JSON.stringify(g));
     });
     resToJSON.then(
-      value => {
+      (value) => {
         res.json(JSON.parse(value)); // Success!
       },
-      reason => {
+      (reason) => {
         console.log(reason); // Error!
       }
     );
@@ -24,8 +25,8 @@ module.exports.overview = function(req, res) {
 };
 
 // A basic search endpoint, return all the channels to be searched:
-module.exports.search = function(req, res) {
-  redis.smembers("channelsSet").then(function(results) {
+module.exports.search = (req, res) => {
+  redis.smembers('channelsSet').then((results) => {
     res.json(results);
   });
 };
